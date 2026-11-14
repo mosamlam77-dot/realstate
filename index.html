@@ -264,8 +264,7 @@
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      background: linear-gradient(135deg, rgba(194, 155, 108, 0.2), rgba(194, 155, 108, 0.05)),
-                  url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60') center/cover;
+      background: linear-gradient(135deg, rgba(194, 155, 108, 0.2), rgba(194, 155, 108, 0.05));
       background-blend-mode: overlay;
       border: 1px solid var(--tan-accent);
       display: grid;
@@ -889,7 +888,6 @@
       height: 48px;
       border-radius: 12px;
       background-color: var(--navy-luxury);
-      background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60');
       background-size: cover;
       background-position: center;
       color: var(--tan-accent);
@@ -2772,7 +2770,7 @@
                   <path d="M12 5v14M5 12l7 7 7-7" />
                 </svg>
               </button>
-              <button type="button" class="btn btn-outline-navy" onclick="openProjectUnit('B-302')">
+              <button type="button" class="btn btn-tan " onclick="openProjectUnit('B-302')">
                 <span>معاينة وحدة نموذجية (B-302)</span>
               </button>
             </div>
@@ -2835,15 +2833,15 @@
 
         <div class="projects-grid">
           <article class="project-card" onclick="openProjectPage('nakheel')">
-            <div class="project-media" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+            <div class="project-media" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');background-position: center; background-size: cover;">
               <span class="status-badge-tan">بيع على الخارطة</span>
-              <div class="project-media-icon" aria-hidden="true">
+              <!-- <div class="project-media-icon" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 7h2M13 7h2M9 11h2M13 11h2M9 15h6v6H9z" />
                 </svg>
               </div>
               <span class="project-media-label">منظور معماري خارجي - برج النخيل السكني</span>
-              <span class="project-media-sub">نموذج تجريبي</span>
+              <span class="project-media-sub">نموذج تجريبي</span> -->
               <span class="project-location-chip">شمال الرياض - حي النخيل</span>
             </div>
 
@@ -2877,15 +2875,15 @@
           </article>
 
           <article class="project-card" onclick="openProjectPage('yasmin')">
-            <div class="project-media" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+            <div class="project-media" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); background-position: center; background-size: cover;">
               <span class="status-badge-tan">بيع على الخارطة</span>
-              <div class="project-media-icon" aria-hidden="true">
+              <!-- <div class="project-media-icon" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M3 21h18M4 21V9l8-5 8 5v12M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5" />
                 </svg>
               </div>
               <span class="project-media-label">منظور معماري خارجي - مجمع الياسمين</span>
-              <span class="project-media-sub">نموذج تجريبي</span>
+              <span class="project-media-sub">نموذج تجريبي</span> -->
               <span class="project-location-chip">شمال الرياض - حي الياسمين</span>
             </div>
 
@@ -2919,15 +2917,15 @@
           </article>
 
           <article class="project-card" onclick="openProjectPage('murooj')">
-            <div class="project-media" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+            <div class="project-media" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');background-position: center; background-size: cover;">
               <span class="status-badge-tan">بيع على الخارطة</span>
-              <div class="project-media-icon" aria-hidden="true">
+              <!-- <div class="project-media-icon" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M3 21h18M6 21V8l6-4 6 4v13M10 11h4M10 15h4" />
                 </svg>
               </div>
               <span class="project-media-label">منظور معماري خارجي - واحة المروج</span>
-              <span class="project-media-sub">نموذج تجريبي</span>
+              <span class="project-media-sub">نموذج تجريبي</span> -->
               <span class="project-location-chip">وسط وشمال الرياض - حي المروج</span>
             </div>
 
@@ -4673,16 +4671,3 @@
   </script>
 </body>
 </html>
-
-  - أُضيف عرض صفحة المشروع الوسيطة (#project-view) بالترتيب المحدد للأقسام
-    الـ 11 بدءاً من مسار التنقل وترويسة المشروع ومعرض الوسائط القابل للتبديل
-    وشريط الحقائق السريعة.
-  - أُدرج المخطط التفاعلي للطوابق والوحدات متزامناً مع فلاتر الغرف والحالة
-    والسعر وعداد النتائج الفوري وجدول الوحدات التفاعلي، مع ربط الوحدات المتاحة
-    بصفحة الوحدة وتعطيل المباعة.
-  - طُبّق نظام الألوان الفاخر الفاتح المطابق لصفحة html.html (#F8FAFC و#FFFFFF
-    مع كحلي #0F233C ولمسات تان #C29B6C)
-    وأُضيفت المرافق النصية وكتلة الموقع والجدول الزمني وخطة الدفعات وشريط واتساب
-    المثبت للجوال مع دعم prefers-reduced-motion.
-    <!-- اعمار
-     عقار مصر -->
