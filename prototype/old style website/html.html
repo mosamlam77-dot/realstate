@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Real Estate Hero</title>
+  <style>
+    :root {
+      /* Page & Card Surfaces */
+      --bg-primary: #F2F4F3;
+      --bg-deep: #F2F4F3;
+      --surface-card: #FFFFFF;
+      --surface-elevated: #FFFFFF;
+
+      /* Deep Luxury Navy Blue (Dark Sections) */
+      --bg-navy: #142B45;
+      --navy-luxury: #142B45;
+      --navy-luxury-light: #1D3B5E;
+
+      /* Luxury Accent & Darkened Hover State */
+      --gold: #A9927D;
+      --gold-hover: #947C66;
+      --gold2: #6D3D14;
+      --tan-accent: #A9927D;
+      --tan-accent-soft: rgba(169, 146, 125, 0.16);
+
+      /* Borders */
+      --border-subtle: rgba(169, 146, 125, 0.45);
+      --border-muted: rgba(169, 146, 125, 0.30);
+
+      /* Typography Colors */
+      --text-primary: #443627;
+      --text-heading: #6D3D14;
+      --text-muted: #443627;
+      --white: #FFFFFF;
+
+      /* Actions & Unit Status */
+      --whatsapp-green: #1B5E20;
+      --whatsapp-green-hover: #144918;
+      --status-available: #15803D;
+      --status-reserved: #B45309;
+      --status-sold: #64748B;
+
+      /* Original Eight-Point-Star SVG Pattern */
+      --star-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23A9927D' stroke-width='1.2' stroke-opacity='0.05'%3E%3Crect x='19' y='19' width='26' height='26'/%3E%3Crect x='19' y='19' width='26' height='26' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
+
+      /* Layout & Elevation */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-sm: 0 2px 10px rgba(20, 43, 69, 0.06);
+      --shadow-md: 0 10px 28px rgba(20, 43, 69, 0.10);
+      --shadow-lg: 0 18px 42px rgba(20, 43, 69, 0.16);
+      --transition: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      --container-max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    /* Hero Section */
+    .luxury-hero {
+      position: relative;
+      background-color: var(--bg-navy);
+      background-image: var(--star-pattern), linear-gradient(135deg, var(--bg-navy) 0%, var(--navy-luxury-light) 100%);
+      background-repeat: repeat;
+      padding: 100px 20px 120px;
+      overflow: hidden;
+      color: var(--white);
+    }
+
+    .hero-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* Left Content Styling */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--tan-accent-soft);
+      border: 1px solid var(--border-subtle);
+      color: var(--gold);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      width: max-content;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      line-height: 1.15;
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content h1 span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 520px;
+    }
+
+    /* Quick Property Filter / Search Bar */
+    .hero-search-bar {
+      background: var(--surface-card);
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 12px;
+      margin-top: 10px;
+      border: 1px solid var(--border-muted);
+    }
+
+    .search-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 4px 12px;
+      border-right: 1px solid #E2E8F0;
+    }
+
+    .search-field:last-of-type {
+      border-right: none;
+    }
+
+    .search-field label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .search-field select {
+      border: none;
+      background: transparent;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .search-btn {
+      background-color: var(--gold);
+      color: var(--white);
+      border: none;
+      padding: 0 28px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-btn:hover {
+      background-color: var(--gold-hover);
+    }
+
+    /* Metrics Strip */
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 20px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(169, 146, 125, 0.25);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .metric-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* Right Visual Card */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card-main {
+      background: var(--surface-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 480px;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .hero-card-main:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(20, 43, 69, 0.25);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      height: 320px;
+      /* Replace with your high-end real estate background image */
+      background: linear-gradient(135deg, #1D3B5E 0%, #142B45 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .image-overlay-badge {
+      background-color: rgba(20, 43, 69, 0.85);
+      backdrop-filter: blur(8px);
+      color: var(--gold);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero-card-details {
+      padding: 24px;
+      background: var(--surface-card);
+    }
+
+    .hero-card-details h3 {
+      font-size: 1.25rem;
+      color: var(--text-heading);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .hero-card-details .location {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid #E2E8F0;
+    }
+
+    .card-footer .price {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .card-footer .view-link {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .card-footer .view-link:hover {
+      color: var(--gold-hover);
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-search-bar {
+        grid-template-columns: 1fr;
+      }
+      .search-field {
+        border-right: none;
+        border-bottom: 1px solid #E2E8F0;
+        padding-bottom: 12px;
+      }
+      .search-field:last-of-type {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="luxury-hero">
+    <div class="hero-container">
+      
+      <!-- Left Column: Copy & Interactive Quick Search -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          ✦ Exclusive Residences & Estates
+        </div>
+        <h1>
+          Discover Your <span>Extraordinary Sanctuary</span>
+        </h1>
+        <p>
+          Explore architectural masterpieces curated for the discerning homeowner in the world's most coveted destinations. Your gateway to elite living begins here.
+        </p>
+
+        <!-- Search Bar Component -->
+        <div class="hero-search-bar">
+          <div class="search-field">
+            <label>Location</label>
+            <select>
+              <option>Select Area / City</option>
+              <option>Downtown Luxury District</option>
+              <option>Coastal Marina Bay</option>
+              <option>Exclusive Hillside Estates</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label>Property Type</label>
+            <select>
+              <option>All Types</option>
+              <option>Signature Penthouse</option>
+              <option>Waterfront Villa</option>
+              <option>Private Island Estate</option>
+            </select>
+          </div>
+          <button class="search-btn">Search</button>
+        </div>
+
+        <!-- Metrics Strip -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-number">$1.2B+</span>
+            <span class="metric-label">Portfolio Value</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">250+</span>
+            <span class="metric-label">Elite Estates</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">98%</span>
+            <span class="metric-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Stunning Interactive Feature Card -->
+      <div class="hero-visual">
+        <div class="hero-card-main">
+          <div class="hero-image-wrapper">
+            <div class="image-overlay-badge">Featured Property</div>
+          </div>
+          <div class="hero-card-details">
+            <h3>The Horizon Skyline Villa</h3>
+            <p class="location">Beverly Hills, California</p>
+            <div class="card-footer">
+              <span class="price">$14,500,000</span>
+              <a href="#view" class="view-link">View Details &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,3786 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أركان التطوير | مشاريع سكنية فاخرة على الخارطة</title>
+
+  <!-- Google Fonts: Cairo & Reem Kufi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. CSS VARIABLES & RESET (LUXURY REAL ESTATE DESIGN SYSTEM, STRICT RTL)
+       ========================================================================== */
+    :root {
+      /* Page & Card Surfaces */
+      --bg-primary: #F2F4F3;
+      --bg-deep: #F2F4F3;
+      --surface-card: #FFFFFF;
+      --surface-elevated: #FFFFFF;
+
+      /* Deep Luxury Navy Blue (Dark Sections) */
+      --bg-navy: #142B45;
+      --navy-luxury: #142B45;
+      --navy-luxury-light: #1D3B5E;
+
+      /* Luxury Accent (#A9927D) & Darkened Hover State */
+      --gold: #A9927D;
+      --gold-hover: #947C66;
+      --gold2: #6D3D14;
+      --tan-accent: #A9927D;
+      --tan-accent-soft: rgba(169, 146, 125, 0.16);
+
+      /* Borders */
+      --border-subtle: rgba(169, 146, 125, 0.45);
+      --border-muted: rgba(169, 146, 125, 0.30);
+
+      /* Typography Colors */
+      --text-primary: #443627;
+      --text-heading: #6D3D14;
+      --text-muted: #443627;
+      --white: #FFFFFF;
+
+      /* Actions & Unit Status */
+      --whatsapp-green: #1B5E20;
+      --whatsapp-green-hover: #144918;
+      --status-available: #15803D;
+      --status-reserved: #B45309;
+      --status-sold: #64748B;
+
+      /* Original Eight-Point-Star SVG Pattern (5% opacity #A9927D) */
+      --star-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23A9927D' stroke-width='1.2' stroke-opacity='0.05'%3E%3Crect x='19' y='19' width='26' height='26'/%3E%3Crect x='19' y='19' width='26' height='26' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
+
+      /* Layout & Elevation */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-sm: 0 2px 10px rgba(20, 43, 69, 0.06);
+      --shadow-md: 0 10px 28px rgba(20, 43, 69, 0.10);
+      --shadow-lg: 0 18px 42px rgba(20, 43, 69, 0.16);
+      --transition: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      --container-max: 1200px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, select {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    select:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2.5px solid var(--navy-luxury);
+      outline-offset: 2px;
+    }
+
+    .navbar a:focus-visible,
+    .navbar button:focus-visible,
+    .hero-section a:focus-visible,
+    .hero-section button:focus-visible,
+    .site-footer a:focus-visible,
+    .site-footer button:focus-visible,
+    .mobile-project-whatsapp-bar a:focus-visible {
+      outline: 2.5px solid var(--bg-primary);
+      outline-offset: 2px;
+    }
+
+    .font-display {
+      font-family: 'Reem Kufi', 'Cairo', sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding-inline: 24px;
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .section-padding {
+      padding-block: 56px;
+    }
+
+    @media (min-width: 1024px) {
+      .section-padding {
+        padding-block: 76px;
+      }
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--gold);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      line-height: 1.3;
+    }
+
+    .section-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition), border-color var(--transition), color var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--whatsapp-green);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(27, 94, 32, 0.35);
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-green-hover);
+      box-shadow: 0 6px 20px rgba(27, 94, 32, 0.45);
+    }
+
+    .btn-tan {
+      background-color: var(--gold);
+      color: var(--navy-luxury);
+    }
+
+    .btn-tan:hover {
+      background-color: var(--gold-hover);
+      color: var(--navy-luxury);
+    }
+
+    .btn-navy {
+      background-color: var(--gold);
+      color: var(--navy-luxury);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-navy:hover {
+      background-color: var(--gold-hover);
+      color: var(--navy-luxury);
+      border-color: var(--gold-hover);
+    }
+
+    .btn-outline-navy {
+      border: 1.5px solid var(--gold);
+      color: var(--navy-luxury);
+      background-color: transparent;
+    }
+
+    .btn-outline-navy:hover {
+      background-color: var(--gold-hover);
+      border-color: var(--gold-hover);
+      color: var(--navy-luxury);
+    }
+
+    .hero-section .btn-outline-navy {
+      color: var(--white);
+      border-color: var(--gold);
+    }
+
+    .hero-section .btn-outline-navy:hover {
+      background-color: var(--gold-hover);
+      border-color: var(--gold-hover);
+      color: var(--navy-luxury);
+    }
+
+    /* ==========================================================================
+       2. GLOBAL RTL NAVIGATION BAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bg-navy);
+      backdrop-filter: blur(12px);
+      color: var(--white);
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 24px rgba(20, 43, 69, 0.25);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 74px;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(169, 146, 125, 0.14);
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      color: var(--bg-primary);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-family: 'Reem Kufi', 'Cairo', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: var(--bg-primary);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--bg-primary);
+      padding-block: 6px;
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--gold);
+      transition: width var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--white);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-whatsapp-btn {
+      padding: 9px 14px;
+      font-size: 0.85rem;
+    }
+
+    .nav-whatsapp-text-full {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--gold);
+      color: var(--white);
+    }
+
+    .mobile-menu-toggle:hover {
+      background-color: rgba(169, 146, 125, 0.16);
+      border-color: var(--gold-hover);
+    }
+
+    @media (min-width: 640px) {
+      .nav-whatsapp-text-full {
+        display: inline;
+      }
+      .nav-whatsapp-text-short {
+        display: none;
+      }
+      .nav-whatsapp-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .nav-links {
+        display: flex;
+      }
+      .mobile-menu-toggle {
+        display: none;
+      }
+    }
+
+    .mobile-drawer {
+      background-color: var(--bg-navy);
+      border-top: 1px solid var(--border-subtle);
+      padding: 16px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer .nav-link {
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-drawer .nav-link:hover {
+      background-color: rgba(169, 146, 125, 0.16);
+    }
+
+    /* ==========================================================================
+       3. HOMEPAGE: HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding-top: 20px;
+      padding-bottom: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-section {
+        padding-top: 28px;
+      }
+    }
+
+    .hero-container {
+      position: relative;
+      min-height: 500px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--gold);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: flex-end;
+      background: var(--bg-navy);
+    }
+
+    @media (min-width: 768px) {
+      .hero-container {
+        min-height: 560px;
+        align-items: center;
+      }
+    }
+
+    .hero-architectural-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background-image: var(--star-pattern);
+      background-repeat: repeat;
+      background-size: 64px 64px;
+    }
+
+    .hero-video-placeholder {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 3;
+      background: rgba(20, 43, 69, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px dashed var(--gold);
+      color: var(--bg-primary);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      max-width: calc(100% - 40px);
+    }
+
+    .hero-video-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--gold);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 4px rgba(169, 146, 125, 0.25);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(20, 43, 69, 0.88) 0%,
+        rgba(20, 43, 69, 0.55) 50%,
+        rgba(20, 43, 69, 0.20) 100%
+      );
+    }
+
+    @media (min-width: 768px) {
+      .hero-overlay {
+        background: linear-gradient(
+          to left,
+          rgba(20, 43, 69, 0.88) 0%,
+          rgba(20, 43, 69, 0.52) 52%,
+          rgba(20, 43, 69, 0.20) 100%
+        );
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 4;
+      width: 100%;
+      padding: 90px 24px 36px;
+      max-width: 720px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        padding: 56px 52px;
+      }
+    }
+
+    .hero-badge-tan {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--navy-luxury);
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 6px 16px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(20, 43, 69, 0.3);
+    }
+
+    .hero-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.32;
+      color: var(--gold);
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 2.65rem;
+      }
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      color: var(--bg-primary);
+      max-width: 560px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .hero-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 8px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(169, 146, 125, 0.35);
+      font-size: 0.88rem;
+      color: var(--bg-primary);
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-item strong {
+      color: var(--white);
+    }
+
+    /* ==========================================================================
+       4. HOMEPAGE: OFF-PLAN PROJECTS GRID
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .project-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold-hover);
+    }
+
+    .project-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(145deg, #142B45 0%, #1D3B5E 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .project-media-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background-color: rgba(169, 146, 125, 0.16);
+      border: 1px solid var(--gold);
+      color: var(--bg-primary);
+      display: grid;
+      place-items: center;
+      margin-bottom: 8px;
+    }
+
+    .project-media-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .project-media-sub {
+      font-size: 0.75rem;
+      color: var(--bg-primary);
+    }
+
+    .status-badge-tan {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--gold);
+      color: var(--navy-luxury);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(20, 43, 69, 0.25);
+    }
+
+    .project-location-chip {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      background-color: rgba(20, 43, 69, 0.88);
+      border: 1px solid rgba(169, 146, 125, 0.45);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .project-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 14px;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .project-summary {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 14px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-sm);
+      margin-top: auto;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .stat-value.highlight {
+      color: var(--text-heading);
+    }
+
+    .project-card-btn {
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       5. HOMEPAGE: WHY ARKAN
+       ========================================================================== */
+    .why-section {
+      background-color: var(--bg-primary);
+      border-top: 1px solid var(--border-muted);
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 640px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .pillars-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .pillar-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .pillar-card:hover {
+      border-color: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background-color: var(--tan-accent-soft);
+      border: 1px solid var(--gold);
+      color: var(--text-heading);
+      display: grid;
+      place-items: center;
+    }
+
+    .pillar-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .pillar-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       6. HOMEPAGE: DIRECT CONTACT STRIP
+       ========================================================================== */
+    .contact-banner {
+      background: var(--surface-card);
+      color: var(--text-primary);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-between;
+      border: 1px solid var(--gold);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (min-width: 768px) {
+      .contact-banner {
+        flex-direction: row;
+        align-items: center;
+        padding: 40px 44px;
+      }
+    }
+
+    .contact-banner-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text-heading);
+    }
+
+    .contact-banner-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    /* ==========================================================================
+       7. BUILDING / PROJECT PAGE VIEW (INTERMEDIATE VIEW - 11 ORDERED SECTIONS)
+       ========================================================================== */
+    .project-page-view {
+      padding-top: 24px;
+      padding-bottom: 104px;
+    }
+
+    @media (min-width: 960px) {
+      .project-page-view {
+        padding-bottom: 64px;
+      }
+    }
+
+    .project-block {
+      margin-bottom: 36px;
+    }
+
+    /* 7.1 Breadcrumb */
+    .project-breadcrumb-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .project-breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .project-breadcrumbs a {
+      color: var(--text-heading);
+      font-weight: 700;
+      transition: opacity var(--transition);
+    }
+
+    .project-breadcrumbs a:hover {
+      opacity: 0.85;
+    }
+
+    .project-breadcrumbs .sep {
+      color: var(--text-muted);
+    }
+
+    .project-breadcrumbs .current {
+      color: var(--text-heading);
+      font-weight: 700;
+    }
+
+    /* 7.2 Project Header */
+    .project-hero-header {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    @media (min-width: 768px) {
+      .project-hero-header {
+        padding: 28px 30px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .project-header-main {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-header-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gold-pill {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold);
+      color: var(--navy-luxury);
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+
+    .sample-tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px dashed var(--gold);
+      background-color: var(--bg-primary);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .project-page-title {
+      font-family: 'Reem Kufi', 'Cairo', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+    }
+
+    @media (min-width: 768px) {
+      .project-page-title {
+        font-size: 2.25rem;
+      }
+    }
+
+    .project-location-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .project-header-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 520px) {
+      .project-header-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .header-metric-box {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .header-metric-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .header-metric-val {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    /* 7.3 Visual Showcase + Thumbnail Row */
+    .project-showcase-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .project-media-stage {
+      position: relative;
+      min-height: 260px;
+      aspect-ratio: 16 / 8.5;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gold);
+      background: var(--bg-navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: background var(--transition);
+    }
+
+    .project-media-stage::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px dashed rgba(169, 146, 125, 0.55);
+      border-radius: var(--radius-md);
+      pointer-events: none;
+    }
+
+    .stage-type-badge {
+      position: relative;
+      z-index: 2;
+      background-color: var(--gold);
+      border: 1px solid var(--gold);
+      color: var(--navy-luxury);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .stage-title {
+      position: relative;
+      z-index: 2;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .stage-caption {
+      position: relative;
+      z-index: 2;
+      font-size: 0.92rem;
+      color: var(--bg-primary);
+      max-width: 540px;
+    }
+
+    .media-thumbnails-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .media-thumbnails-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .media-thumb-btn {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-sm);
+      padding: 14px 12px;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      color: var(--text-primary);
+      transition: border-color var(--transition), background-color var(--transition), transform var(--transition);
+    }
+
+    .media-thumb-btn:hover {
+      border-color: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+
+    .media-thumb-btn.active {
+      background-color: var(--gold);
+      border-color: var(--gold-hover);
+      box-shadow: 0 0 0 1px var(--gold-hover);
+    }
+
+    .thumb-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .media-thumb-btn.active .thumb-title {
+      color: var(--navy-luxury);
+    }
+
+    .thumb-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .media-thumb-btn.active .thumb-sub {
+      color: var(--navy-luxury);
+    }
+
+    /* 7.4 Quick Facts Bar */
+    .quick-facts-bar {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .quick-facts-bar {
+        grid-template-columns: repeat(5, 1fr);
+        padding: 20px 24px;
+      }
+    }
+
+    .fact-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-inline-end: 10px;
+      border-inline-end: 1px solid var(--border-muted);
+    }
+
+    .fact-cell:last-child {
+      border-inline-end: none;
+    }
+
+    @media (max-width: 767px) {
+      .fact-cell {
+        border-inline-end: none;
+        border-bottom: 1px solid var(--border-muted);
+        padding-bottom: 10px;
+      }
+      .fact-cell:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+
+    .fact-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .fact-value {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    /* 7.5 Interactive Tower / Master Plan + Filters */
+    .plan-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-lg);
+      padding: 20px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (min-width: 768px) {
+      .plan-card {
+        padding: 26px;
+      }
+    }
+
+    .plan-controls-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .filters-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .filter-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .filter-select {
+      width: 100%;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .filter-select:hover {
+      border-color: var(--gold-hover);
+    }
+
+    .filter-select:focus {
+      border-color: var(--text-heading);
+    }
+
+    .plan-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .live-result-counter {
+      background-color: var(--gold);
+      border: 1px solid var(--gold-hover);
+      color: var(--navy-luxury);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .plan-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .legend-dot.available { background-color: var(--status-available); }
+    .legend-dot.reserved { background-color: var(--status-reserved); }
+    .legend-dot.sold { background-color: var(--status-sold); }
+
+    .tower-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tower-floor-row {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .tower-floor-row {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .floor-badge {
+      min-width: 96px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--white);
+      padding: 6px 10px;
+      background-color: var(--navy-luxury);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .floor-units-cells {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .floor-units-cells {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .plan-unit-tile {
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      border: 1px solid var(--border-muted);
+      background-color: var(--surface-card);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      text-align: right;
+      transition: transform var(--transition), border-color var(--transition), opacity var(--transition), box-shadow var(--transition);
+    }
+
+    .plan-unit-tile.status-available {
+      border-color: rgba(21, 128, 61, 0.45);
+      background: linear-gradient(145deg, rgba(21, 128, 61, 0.08), var(--surface-card));
+      cursor: pointer;
+    }
+
+    .plan-unit-tile.status-available:hover {
+      border-color: var(--status-available);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(21, 128, 61, 0.14);
+    }
+
+    .plan-unit-tile.status-reserved {
+      border-color: rgba(180, 83, 9, 0.45);
+      background: linear-gradient(145deg, rgba(180, 83, 9, 0.09), var(--surface-card));
+      cursor: default;
+    }
+
+    .plan-unit-tile.status-sold {
+      border-color: rgba(100, 116, 139, 0.35);
+      background-color: rgba(100, 116, 139, 0.10);
+      opacity: 0.65;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .plan-unit-tile.filtered-out {
+      opacity: 0.22;
+      filter: grayscale(0.8);
+      pointer-events: none;
+    }
+
+    .tile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .tile-code {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .tile-status-pill {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .status-available .tile-status-pill {
+      background-color: rgba(21, 128, 61, 0.15);
+      color: #14532D;
+    }
+
+    .status-reserved .tile-status-pill {
+      background-color: rgba(180, 83, 9, 0.16);
+      color: #78350F;
+    }
+
+    .status-sold .tile-status-pill {
+      background-color: rgba(100, 116, 139, 0.2);
+      color: #334155;
+    }
+
+    .tile-meta {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .tile-price {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    /* 7.6 Matching Unit List (Responsive Table/List) */
+    .unit-list-wrapper {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .unit-list-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .unit-list-table thead {
+      display: none;
+      background-color: var(--navy-luxury);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .unit-list-table th {
+      padding: 14px 16px;
+      text-align: right;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .unit-list-table tbody tr {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 14px;
+      padding: 16px;
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    .unit-list-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .unit-list-table td {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 0.88rem;
+      color: var(--text-primary);
+    }
+
+    .unit-list-table td[data-label="الرمز"] strong,
+    .unit-list-table td[data-label="السعر"] strong {
+      color: var(--text-heading) !important;
+    }
+
+    .unit-list-table td.action-cell button[disabled] {
+      background-color: #E2E8F0 !important;
+      color: #475569 !important;
+      border: 1px solid #CBD5E1;
+    }
+
+    .unit-list-table td::before {
+      content: attr(data-label);
+      font-size: 0.72rem;
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+
+    .unit-list-table td.action-cell {
+      grid-column: 1 / -1;
+      margin-top: 4px;
+    }
+
+    .unit-list-table td.action-cell::before {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .unit-list-table thead {
+        display: table-header-group;
+      }
+      .unit-list-table tbody tr {
+        display: table-row;
+        padding: 0;
+      }
+      .unit-list-table td {
+        display: table-cell;
+        padding: 14px 16px;
+        vertical-align: middle;
+      }
+      .unit-list-table td::before {
+        display: none;
+      }
+      .unit-list-table td.action-cell {
+        text-align: left;
+      }
+    }
+
+    .list-status-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .list-status-badge.available {
+      background-color: rgba(21, 128, 61, 0.14);
+      color: #14532D;
+    }
+
+    .list-status-badge.reserved {
+      background-color: rgba(180, 83, 9, 0.15);
+      color: #78350F;
+    }
+
+    .list-status-badge.sold {
+      background-color: rgba(100, 116, 139, 0.18);
+      color: #334155;
+    }
+
+    .empty-filter-state {
+      padding: 32px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* 7.7 Amenities Section (6 Minimalist Text-Only Cards, NO Icons) */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .amenities-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+
+    .amenity-text-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-top: 2px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .amenity-card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .amenity-card-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* 7.8 Location & Landmarks Block */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .location-grid {
+        grid-template-columns: 1.25fr 1fr;
+      }
+    }
+
+    .map-placeholder-box {
+      min-height: 240px;
+      background: var(--surface-card);
+      border: 1px dashed var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .map-placeholder-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .map-placeholder-sub {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .landmarks-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .landmarks-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .landmarks-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .landmarks-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-muted);
+      font-size: 0.9rem;
+    }
+
+    .landmarks-list li:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .landmark-name {
+      color: var(--text-primary);
+      position: relative;
+      padding-right: 14px;
+    }
+
+    .landmark-name::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--gold);
+    }
+
+    .landmark-dist {
+      color: var(--text-heading);
+      font-weight: 700;
+      white-space: nowrap;
+      font-size: 0.84rem;
+    }
+
+    /* 7.9 Project Timeline */
+    .timeline-track {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .timeline-track {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .timeline-step {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .timeline-step.completed {
+      border-color: rgba(21, 128, 61, 0.45);
+    }
+
+    .timeline-step.active {
+      background: var(--surface-card);
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 8px 24px rgba(109, 61, 20, 0.10);
+    }
+
+    .timeline-phase-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--text-muted);
+    }
+
+    .timeline-step.completed .timeline-phase-tag {
+      color: #14532D;
+    }
+
+    .timeline-step.active .timeline-phase-tag {
+      color: var(--text-heading);
+    }
+
+    .timeline-step-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .timeline-step-date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* 7.10 Payment Plan Section */
+    .payment-plan-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .payment-plan-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .payment-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .payment-percent {
+      font-family: 'Reem Kufi', 'Cairo', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.1;
+    }
+
+    .payment-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .payment-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* 7.11 Fixed Mobile WhatsApp CTA Bar */
+    .mobile-project-whatsapp-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 950;
+      background-color: var(--navy-luxury);
+      backdrop-filter: blur(10px);
+      border-top: 2px solid var(--gold);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 -8px 24px rgba(20, 43, 69, 0.35);
+    }
+
+    @media (min-width: 960px) {
+      .mobile-project-whatsapp-bar {
+        display: none !important;
+      }
+    }
+
+    .mobile-bar-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .mobile-bar-project {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mobile-bar-price {
+      font-size: 0.76rem;
+      color: var(--bg-primary);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       8. INDIVIDUAL UNIT DETAILS VIEW
+       ========================================================================== */
+    .details-view {
+      padding-top: 24px;
+      padding-bottom: 64px;
+    }
+
+    .breadcrumb-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .breadcrumb-link {
+      color: var(--text-heading);
+      font-weight: 700;
+      transition: color var(--transition);
+    }
+
+    .breadcrumb-link:hover {
+      color: var(--navy-luxury);
+    }
+
+    .breadcrumb-sep {
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .breadcrumb-current {
+      color: var(--text-heading);
+      font-weight: 700;
+    }
+
+    .back-home-btn {
+      font-size: 0.85rem;
+      padding: 8px 14px;
+    }
+
+    .floating-spec-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-right: 4px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    @media (min-width: 960px) {
+      .floating-spec-card {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 22px 28px;
+      }
+    }
+
+    .spec-primary-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .spec-unit-code {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-unit-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .spec-unit-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      line-height: 1.2;
+    }
+
+    .spec-divider {
+      width: 1px;
+      height: 36px;
+      background-color: var(--border-muted);
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .spec-divider {
+        display: block;
+      }
+    }
+
+    .spec-kpi-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .spec-kpi {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-kpi-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .spec-kpi-value {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .room-size-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .size-chip {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .size-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--gold);
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 960px) {
+      .showcase-grid {
+        grid-template-columns: 1.75fr 1fr;
+      }
+    }
+
+    .showcase-visual-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .room-visual-frame {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #142B45 0%, #1D3B5E 100%);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .room-visual-frame::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1.5px dashed rgba(169, 146, 125, 0.55);
+      border-radius: var(--radius-md);
+      pointer-events: none;
+    }
+
+    .room-visual-badge {
+      position: relative;
+      z-index: 2;
+      background: var(--gold);
+      color: var(--navy-luxury);
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .room-visual-icon {
+      position: relative;
+      z-index: 2;
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      background-color: rgba(169, 146, 125, 0.16);
+      border: 1px solid var(--gold);
+      color: var(--bg-primary);
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+    }
+
+    .room-visual-title {
+      position: relative;
+      z-index: 2;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .room-visual-desc {
+      position: relative;
+      z-index: 2;
+      font-size: 0.9rem;
+      color: var(--bg-primary);
+      max-width: 460px;
+    }
+
+    .room-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .room-tabs {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .room-tab-btn {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-sm);
+      padding: 12px 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      transition: all var(--transition);
+    }
+
+    .room-tab-btn span.tab-area {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .room-tab-btn:hover {
+      border-color: var(--gold-hover);
+      color: var(--text-heading);
+    }
+
+    .room-tab-btn.active {
+      background: var(--gold);
+      border-color: var(--gold-hover);
+      color: var(--navy-luxury);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .room-tab-btn.active span.tab-area {
+      color: var(--navy-luxury);
+    }
+
+    .room-detail-strip {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .room-detail-heading {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .room-detail-size-tag {
+      background-color: var(--gold);
+      color: var(--navy-luxury);
+      border: 1px solid var(--gold-hover);
+      font-size: 0.8rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+
+    .room-detail-copy {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .sticky-inquiry-card {
+      background: var(--surface-card);
+      color: var(--text-primary);
+      border-radius: var(--radius-lg);
+      padding: 26px 24px;
+      border: 1px solid var(--gold);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    @media (min-width: 960px) {
+      .sticky-inquiry-card {
+        position: sticky;
+        top: 96px;
+      }
+    }
+
+    .inquiry-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    .inquiry-badge {
+      background: var(--gold);
+      color: var(--navy-luxury);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .inquiry-project-name {
+      font-size: 0.9rem;
+      color: var(--text-heading);
+      font-weight: 700;
+    }
+
+    .inquiry-price-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .inquiry-price-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .inquiry-price-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      line-height: 1.2;
+    }
+
+    .inquiry-summary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .inquiry-summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    .inquiry-summary-row:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .inquiry-summary-row span {
+      color: var(--text-muted);
+    }
+
+    .inquiry-summary-row strong {
+      color: var(--text-heading);
+      font-weight: 700;
+    }
+
+    .inquiry-summary-row strong.tan {
+      color: var(--text-heading);
+    }
+
+    .inquiry-whatsapp-cta {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 1rem;
+    }
+
+    .inquiry-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .neighborhood-section {
+      margin-bottom: 48px;
+    }
+
+    .neighborhood-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .neighborhood-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .neighborhood-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .neighborhood-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background-color: var(--tan-accent-soft);
+      border: 1px solid var(--gold);
+      color: var(--text-heading);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .neighborhood-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      margin-bottom: 4px;
+    }
+
+    .neighborhood-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .similar-units-track {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 768px) {
+      .similar-units-track {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .similar-unit-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .similar-unit-card:hover {
+      border-color: var(--gold-hover);
+      transform: translateY(-3px);
+    }
+
+    .similar-unit-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .similar-unit-code {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .similar-floor-tag {
+      background-color: var(--gold);
+      color: var(--navy-luxury);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .similar-unit-specs {
+      display: flex;
+      justify-content: space-between;
+      padding-block: 10px;
+      border-top: 1px solid var(--border-muted);
+      border-bottom: 1px solid var(--border-muted);
+      font-size: 0.88rem;
+    }
+
+    .similar-unit-specs span {
+      color: var(--text-muted);
+    }
+
+    .similar-unit-specs strong {
+      color: var(--text-heading);
+    }
+
+    /* ==========================================================================
+       9. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--bg-navy);
+      background-image: var(--star-pattern);
+      background-repeat: repeat;
+      background-size: 64px 64px;
+      color: var(--white);
+      border-top: 2px solid var(--gold);
+      padding-block: 42px 28px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(169, 146, 125, 0.30);
+    }
+
+    @media (min-width: 768px) {
+      .footer-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-brand-desc {
+      font-size: 0.9rem;
+      color: var(--bg-primary);
+      max-width: 440px;
+      margin-top: 8px;
+    }
+
+    .footer-license-box {
+      background-color: rgba(169, 146, 125, 0.14);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 12px 18px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--bg-primary);
+    }
+
+    .footer-bottom {
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--bg-primary);
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    /* ==========================================================================
+       10. REDUCED MOTION SUPPORT
+       ========================================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       GLOBAL RTL NAVIGATION BAR
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="#home" class="brand-logo" onclick="navigateToHome(event, 'top')">
+          <div class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 10h.01M15 10h.01" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">أركان التطوير</span>
+            <span class="brand-tagline">تطوير عقاري فاخر على الخارطة</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="التنقل الرئيسي">
+          <a href="#home" class="nav-link active" data-nav="home" onclick="navigateToHome(event, 'top')">الرئيسية</a>
+          <a href="#projects" class="nav-link" data-nav="projects" onclick="navigateToHome(event, 'projects-section')">مشاريعنا</a>
+          <a href="#why-arkan" class="nav-link" data-nav="why" onclick="navigateToHome(event, 'why-section')">لماذا أركان</a>
+          <a href="#contact" class="nav-link" data-nav="contact" onclick="navigateToHome(event, 'contact-section')">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a
+            href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9%20%D8%A3%D8%B1%D9%83%D8%A7%D9%86%20%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D8%B3%D9%83%D9%86%D9%8A%D8%A9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-whatsapp nav-whatsapp-btn"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.79 14.12c-.24.68-1.42 1.3-1.95 1.38-.5.07-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.18-4.94-4.37-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.59-.36.79-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.52-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.71.81 2 .95.29.15.49.22.56.34.07.12.07.7-.17 1.38z" />
+            </svg>
+            <span class="nav-whatsapp-text-full">تواصل عبر واتساب</span>
+            <span class="nav-whatsapp-text-short">واتساب</span>
+          </a>
+
+          <button
+            class="mobile-menu-toggle"
+            aria-label="فتح القائمة"
+            aria-expanded="false"
+            onclick="toggleMobileMenu()"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-drawer" class="mobile-drawer">
+      <a href="#home" class="nav-link active" data-nav="home" onclick="navigateToHome(event, 'top'); toggleMobileMenu(false);">الرئيسية</a>
+      <a href="#projects" class="nav-link" data-nav="projects" onclick="navigateToHome(event, 'projects-section'); toggleMobileMenu(false);">مشاريعنا</a>
+      <a href="#why-arkan" class="nav-link" data-nav="why" onclick="navigateToHome(event, 'why-section'); toggleMobileMenu(false);">لماذا أركان</a>
+      <a href="#contact" class="nav-link" data-nav="contact" onclick="navigateToHome(event, 'contact-section'); toggleMobileMenu(false);">تواصل معنا</a>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       VIEW 1: HOMEPAGE VIEW (UNCHANGED STRUCTURE & CORE LOGIC)
+       ======================================================================== -->
+  <main id="home-view">
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-container">
+          <div class="hero-architectural-bg" aria-hidden="true"></div>
+
+          <div class="hero-video-placeholder">
+            <span class="hero-video-dot" aria-hidden="true"></span>
+            <span>مساحة الفيديو السينمائي للمشروع - مبنى حجري دافئ وسماء زرقاء صافية (تجريبي)</span>
+          </div>
+
+          <div class="hero-overlay" aria-hidden="true"></div>
+
+          <div class="hero-content">
+            <span class="hero-badge-tan">تبدأ الأسعار من 780,000 ر.س | بيع على الخارطة</span>
+            <h1 class="hero-title">نبني مساحات تليق بطموحك... جودة هندسية ورؤية مستقبلية</h1>
+            <p class="hero-description">
+              مشاريع سكنية فاخرة في المملكة العربية السعودية بتصاميم معمارية تجمع بين الحجر الجيري الدافئ والخصوصية السعودية الأصيلة ومعايير جودة بناء عالية.
+            </p>
+            <div class="hero-cta-row">
+              <button type="button" class="btn btn-tan" onclick="scrollToSection('projects-section')">
+                <span>استكشف المشاريع</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+              </button>
+              <button type="button" class="btn btn-outline-navy" onclick="openProjectUnit('B-302')">
+                <span>معاينة وحدة نموذجية (B-302)</span>
+              </button>
+            </div>
+
+            <div class="hero-meta-strip">
+              <div class="hero-meta-item">
+                <span>المشاريع النشطة:</span>
+                <strong>3 مشاريع سكنية</strong>
+              </div>
+              <div class="hero-meta-item">
+                <span>نظام البيع:</span>
+                <strong>بيع على الخارطة (تملك فقط)</strong>
+              </div>
+              <div class="hero-meta-item">
+                <span>كود البناء:</span>
+                <strong>مطابق للكود السعودي</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects-section" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">مشاريع البيع على الخارطة</span>
+          <h2 class="section-title">مشاريعنا السكنية الحصرية</h2>
+          <p class="section-subtitle">
+            وحدات تملك سكني بتوزيعات هندسية مدروسة، مساحات رحبة، وتشطيبات متقنة في أحياء سكنية راقية.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card" onclick="openProjectPage('nakheel')">
+            <div class="project-media">
+              <span class="status-badge-tan">بيع على الخارطة</span>
+              <div class="project-media-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 7h2M13 7h2M9 11h2M13 11h2M9 15h6v6H9z" />
+                </svg>
+              </div>
+              <span class="project-media-label">منظور معماري خارجي - برج النخيل السكني</span>
+              <span class="project-media-sub">نموذج تجريبي</span>
+              <span class="project-location-chip">شمال الرياض - حي النخيل</span>
+            </div>
+
+            <div class="project-body">
+              <div>
+                <h3 class="project-title">برج النخيل السكني</h3>
+                <p class="project-summary">
+                  واجهة حجرية دافئة بإطلالات رحبة، شقق ذكية بتقسيم مستقل للمجالس والغرف الخاصة، وقرب مباشر من المحاور الرئيسية.
+                </p>
+              </div>
+
+              <div class="project-stats">
+                <div class="stat-item">
+                  <span class="stat-label">الأسعار تبدأ من</span>
+                  <span class="stat-value highlight">780,000 ر.س</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">الوحدات المتاحة</span>
+                  <span class="stat-value">14 وحدة</span>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-navy project-card-btn" onclick="event.stopPropagation(); openProjectPage('nakheel')">
+                <span>استعراض المشروع والوحدات</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card" onclick="openProjectPage('yasmin')">
+            <div class="project-media">
+              <span class="status-badge-tan">بيع على الخارطة</span>
+              <div class="project-media-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M3 21h18M4 21V9l8-5 8 5v12M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5" />
+                </svg>
+              </div>
+              <span class="project-media-label">منظور معماري خارجي - مجمع الياسمين</span>
+              <span class="project-media-sub">نموذج تجريبي</span>
+              <span class="project-location-chip">شمال الرياض - حي الياسمين</span>
+            </div>
+
+            <div class="project-body">
+              <div>
+                <h3 class="project-title">مجمع الياسمين</h3>
+                <p class="project-summary">
+                  مباني سكنية منخفضة الكثافة محاطة بممرات مشاة مظللة، مواقف خاصة، وتشطيبات داخلية بدرجات الحجر الطبيعي.
+                </p>
+              </div>
+
+              <div class="project-stats">
+                <div class="stat-item">
+                  <span class="stat-label">الأسعار تبدأ من</span>
+                  <span class="stat-value highlight">845,000 ر.س</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">الوحدات المتاحة</span>
+                  <span class="stat-value">9 وحدات</span>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-navy project-card-btn" onclick="event.stopPropagation(); openProjectPage('yasmin')">
+                <span>استعراض المشروع والوحدات</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card" onclick="openProjectPage('murooj')">
+            <div class="project-media">
+              <span class="status-badge-tan">بيع على الخارطة</span>
+              <div class="project-media-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M3 21h18M6 21V8l6-4 6 4v13M10 11h4M10 15h4" />
+                </svg>
+              </div>
+              <span class="project-media-label">منظور معماري خارجي - واحة المروج</span>
+              <span class="project-media-sub">نموذج تجريبي</span>
+              <span class="project-location-chip">وسط وشمال الرياض - حي المروج</span>
+            </div>
+
+            <div class="project-body">
+              <div>
+                <h3 class="project-title">واحة المروج</h3>
+                <p class="project-summary">
+                  تصميم عصري هادئ يركز على الإنارة الطبيعية والعزل الحراري المتقدم، مثالي للعائلات الباحثة عن الخصوصية.
+                </p>
+              </div>
+
+              <div class="project-stats">
+                <div class="stat-item">
+                  <span class="stat-label">الأسعار تبدأ من</span>
+                  <span class="stat-value highlight">920,000 ر.س</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">الوحدات المتاحة</span>
+                  <span class="stat-value">6 وحدات</span>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-navy project-card-btn" onclick="event.stopPropagation(); openProjectPage('murooj')">
+                <span>استعراض المشروع والوحدات</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-section" class="why-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">معاييرنا الهندسية</span>
+          <h2 class="section-title">لماذا أركان؟</h2>
+          <p class="section-subtitle">
+            نلتزم بخمس ركائز أساسية في جميع مشاريع البيع على الخارطة لضمان قيمة سكنية واستثمارية مستدامة.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3 class="pillar-title">جودة البناء</h3>
+            <p class="pillar-desc">إشراف هندسي دقيق ومواد بناء عالية العزل مطابقة لأعلى اشتراطات الكود السعودي.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg>
+            </div>
+            <h3 class="pillar-title">الالتزام بالتسليم</h3>
+            <p class="pillar-desc">جداول تنفيذية محكمة وتقارير تقدم دورية تضمن تسليم الوحدة في موعدها المحدد.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+                <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" />
+              </svg>
+            </div>
+            <h3 class="pillar-title">مرونة التشطيب</h3>
+            <p class="pillar-desc">خيارات ألوان وخامات داخلية مختارة بعناية تتيح لك تخصيص ذوقك خلال مراحل البناء.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                <path d="M9 12l2 2 4-4" />
+                <rect x="3" y="4" width="18" height="16" rx="2" />
+              </svg>
+            </div>
+            <h3 class="pillar-title">شفافية الأسعار</h3>
+            <p class="pillar-desc">أسعار واضحة ومعلنة لكل وحدة سكنية بدون رسوم خفية، وفق ضوابط البيع على الخارطة.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3 class="pillar-title">ضمانات ما بعد البيع</h3>
+            <p class="pillar-desc">ضمانات هيكلية وميكانيكية وكهربائية شاملة مع فريق صيانة مخصص لخدمة الملاك.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-section" class="section-padding">
+      <div class="container">
+        <div class="contact-banner">
+          <div>
+            <h2 class="contact-banner-title">هل ترغب بالاطلاع على المخططات الهندسية أو حجز موعد معاينة؟</h2>
+            <p class="contact-banner-sub">
+              فريق المبيعات الهندسي في أركان التطوير متاح للرد المباشر على جميع استفسارات الوحدات المتاحة عبر واتساب.
+            </p>
+          </div>
+          <a
+            href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%20%D9%81%D8%B1%D9%8A%D9%82%20%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA%20%D8%A3%D8%B1%D9%83%D8%A7%D9%86%20%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D9%8A%D8%B1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-whatsapp"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.79 14.12c-.24.68-1.42 1.3-1.95 1.38-.5.07-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.18-4.94-4.37-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.59-.36.79-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.52-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.71.81 2 .95.29.15.49.22.56.34.07.12.07.7-.17 1.38z" />
+            </svg>
+            <span>تواصل مباشرة عبر واتساب</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       VIEW 2: BUILDING / PROJECT PAGE VIEW (INTERMEDIATE VIEW - 11 SECTIONS)
+       ======================================================================== -->
+  <section id="project-view" class="project-page-view hidden" aria-live="polite">
+    <div class="container">
+
+      <!-- 1. Breadcrumb: الرئيسية / المشاريع / اسم المشروع -->
+      <div class="project-breadcrumb-bar">
+        <nav class="project-breadcrumbs" aria-label="مسار المشروع">
+          <a href="#home" onclick="navigateToHome(event, 'top')">الرئيسية</a>
+          <span class="sep">/</span>
+          <a href="#projects" onclick="navigateToHome(event, 'projects-section')">المشاريع</a>
+          <span class="sep">/</span>
+          <span class="current" id="proj-breadcrumb-name">برج النخيل السكني</span>
+        </nav>
+
+        <button type="button" class="btn btn-outline-navy back-home-btn" onclick="navigateToHome(event, 'projects-section')">
+          <span>العودة للمشاريع</span>
+        </button>
+      </div>
+
+      <!-- 2. Project Header -->
+      <header class="project-hero-header project-block">
+        <div class="project-header-main">
+          <div class="project-header-badges">
+            <span class="gold-pill" id="proj-status-badge">بيع على الخارطة</span>
+            <span class="sample-tag">بيانات المشروع: نموذج تجريبي</span>
+          </div>
+          <h1 class="project-page-title" id="proj-title">برج النخيل السكني</h1>
+          <p class="project-location-text" id="proj-location">حي النخيل، مدينة الرياض</p>
+        </div>
+
+        <div class="project-header-metrics">
+          <div class="header-metric-box">
+            <span class="header-metric-label">الأسعار تبدأ من</span>
+            <span class="header-metric-val" id="proj-start-price">780,000 ر.س</span>
+          </div>
+          <div class="header-metric-box">
+            <span class="header-metric-label">الوحدات المتاحة</span>
+            <span class="header-metric-val" id="proj-available-count">14 وحدة</span>
+          </div>
+          <div class="header-metric-box">
+            <span class="header-metric-label">التسليم المتوقع</span>
+            <span class="header-metric-val" id="proj-handover">الربع الرابع 2027</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- 3. Visual Showcase + Thumbnail Row -->
+      <section class="project-showcase-wrapper project-block" aria-label="معرض المشروع المرئي">
+        <!--
+          DEVELOPER MEDIA SLOT:
+          Replace the placeholder stage content inside #proj-media-stage with a real <video autoplay muted loop playsinline>
+          or high-resolution <img src="..." alt="..."> asset per selected gallery tab.
+        -->
+        <div class="project-media-stage" id="proj-media-stage">
+          <span class="stage-type-badge" id="proj-stage-badge">عرض تجريبي | واجهة المشروع (فيديو / صورة عالية الدقة)</span>
+          <h2 class="stage-title" id="proj-stage-title">الواجهة المعمارية الرئيسية - برج النخيل السكني</h2>
+          <p class="stage-caption" id="proj-stage-caption">
+            مساحة مخصصة لإدراج فيديو المشروع السينمائي أو الصورة عالية الدقة للواجهة الحجرية الدافئة (نموذج تجريبي).
+          </p>
+        </div>
+
+        <div class="media-thumbnails-row" role="tablist" aria-label="معرض صور المشروع">
+          <button type="button" class="media-thumb-btn active" role="tab" aria-selected="true" data-media="facade" onclick="selectProjectMedia('facade')">
+            <span class="thumb-title">واجهة</span>
+            <span class="thumb-sub">لقطة خارجية (تجريبي)</span>
+          </button>
+          <button type="button" class="media-thumb-btn" role="tab" aria-selected="false" data-media="lobby" onclick="selectProjectMedia('lobby')">
+            <span class="thumb-title">مدخل</span>
+            <span class="thumb-sub">بهو الاستقبال (تجريبي)</span>
+          </button>
+          <button type="button" class="media-thumb-btn" role="tab" aria-selected="false" data-media="shared" onclick="selectProjectMedia('shared')">
+            <span class="thumb-title">منطقة مشتركة</span>
+            <span class="thumb-sub">ممرات وجلسات (تجريبي)</span>
+          </button>
+          <button type="button" class="media-thumb-btn" role="tab" aria-selected="false" data-media="view" onclick="selectProjectMedia('view')">
+            <span class="thumb-title">إطلالة</span>
+            <span class="thumb-sub">المنظر المحيط (تجريبي)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4. Quick Facts Bar -->
+      <section class="quick-facts-bar project-block" aria-label="معلومات سريعة عن المشروع">
+        <div class="fact-cell">
+          <span class="fact-label">عدد الطوابق</span>
+          <span class="fact-value" id="fact-floors">4 طوابق (تجريبي)</span>
+        </div>
+        <div class="fact-cell">
+          <span class="fact-label">إجمالي الوحدات</span>
+          <span class="fact-value" id="fact-total-units">16 وحدة (تجريبي)</span>
+        </div>
+        <div class="fact-cell">
+          <span class="fact-label">نطاق المساحات</span>
+          <span class="fact-value" id="fact-area-range">142 - 190 م²</span>
+        </div>
+        <div class="fact-cell">
+          <span class="fact-label">مواقف السيارات</span>
+          <span class="fact-value" id="fact-parking">32 موقف خاص</span>
+        </div>
+        <div class="fact-cell">
+          <span class="fact-label">تاريخ التسليم</span>
+          <span class="fact-value" id="fact-delivery">نهاية 2027 (تجريبي)</span>
+        </div>
+      </section>
+
+      <!-- 5. Interactive Tower / Master Plan -->
+      <section class="plan-card project-block" aria-label="المخطط التفاعلي للبرج والوحدات">
+        <div class="section-header" style="margin-bottom: 18px;">
+          <span class="section-eyebrow">المخطط التفاعلي (تجريبي)</span>
+          <h2 class="section-title" style="font-size: 1.45rem;">توزيع الطوابق والوحدات السكنية</h2>
+          <p class="section-subtitle">
+            اختر مواصفاتك عبر الفلاتر لعرض الوحدات المطابقة، واضغط على أي وحدة متاحة للانتقال إلى تفاصيلها الكاملة.
+          </p>
+        </div>
+
+        <div class="plan-controls-bar">
+          <div class="filters-grid">
+            <div class="filter-group">
+              <label for="filter-rooms" class="filter-label">عدد الغرف</label>
+              <select id="filter-rooms" class="filter-select" onchange="applyProjectFilters()">
+                <option value="all">جميع الغرف</option>
+                <option value="2">غرفتين نوم</option>
+                <option value="3">3 غرف نوم</option>
+                <option value="4">4 غرف نوم</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-status" class="filter-label">حالة الوحدة</label>
+              <select id="filter-status" class="filter-select" onchange="applyProjectFilters()">
+                <option value="all">جميع الحالات</option>
+                <option value="available">متاحة</option>
+                <option value="reserved">محجوزة</option>
+                <option value="sold">مباعة</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-price" class="filter-label">نطاق السعر</label>
+              <select id="filter-price" class="filter-select" onchange="applyProjectFilters()">
+                <option value="all">جميع الأسعار</option>
+                <option value="under850">أقل من 850,000 ر.س</option>
+                <option value="850to1m">850,000 - 1,000,000 ر.س</option>
+                <option value="over1m">أكثر من 1,000,000 ر.س</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="plan-meta-row">
+            <div class="live-result-counter" id="live-result-counter">١٦ وحدة تطابق بحثك</div>
+
+            <div class="plan-legend">
+              <span class="legend-item"><span class="legend-dot available"></span>متاحة (قابلة للمعاينة)</span>
+              <span class="legend-item"><span class="legend-dot reserved"></span>محجوزة</span>
+              <span class="legend-item"><span class="legend-dot sold"></span>مباعة (غير متاحة)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tower-grid" id="tower-plan-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- 6. Matching Unit List (Reactive Table / Responsive List) -->
+      <section class="project-block" aria-label="قائمة الوحدات المطابقة">
+        <div class="section-header" style="margin-bottom: 18px;">
+          <span class="section-eyebrow">جدول الوحدات (تجريبي)</span>
+          <h2 class="section-title" style="font-size: 1.45rem;">قائمة الوحدات المطابقة للبحث</h2>
+        </div>
+
+        <div class="unit-list-wrapper">
+          <table class="unit-list-table">
+            <thead>
+              <tr>
+                <th>الرمز</th>
+                <th>الطابق</th>
+                <th>المساحة</th>
+                <th>الغرف</th>
+                <th>السعر (تجريبي)</th>
+                <th>الحالة</th>
+                <th>الإجراء</th>
+              </tr>
+            </thead>
+            <tbody id="matching-units-tbody">
+              <!-- Populated dynamically via JS -->
+            </tbody>
+          </table>
+          <div id="matching-units-empty" class="empty-filter-state hidden">
+            لا توجد وحدات تطابق خيارات التصفية الحالية. يرجى تعديل الفلاتر لعرض خيارات أخرى.
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Amenities Section (6 Minimalist Text-Only Cards, NO Icons) -->
+      <section class="project-block" aria-label="مرافق وخدمات المشروع">
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="section-eyebrow">جودة الحياة (تجريبي)</span>
+          <h2 class="section-title" style="font-size: 1.45rem;">مرافق وخدمات المشروع</h2>
+        </div>
+
+        <div class="amenities-grid">
+          <article class="amenity-text-card">
+            <h3 class="amenity-card-title">مواقف</h3>
+            <p class="amenity-card-desc">مواقف سيارات مخصصة ومظللة لكل وحدة مع تأسيس شحن مركبات (تجريبي).</p>
+          </article>
+          <article class="amenity-text-card">
+            <h3 class="amenity-card-title">أمن</h3>
+            <p class="amenity-card-desc">نظام دخول ذكي وكاميرات مراقبة على مدار الساعة لخصوصية السكان (تجريبي).</p>
+          </article>
+          <article class="amenity-text-card">
+            <h3 class="amenity-card-title">مسجد</h3>
+            <p class="amenity-card-desc">مسجد قريب على مسافة مشي دقيقة واحدة ومصلى مجهز داخل المجمع (تجريبي).</p>
+          </article>
+          <article class="amenity-text-card">
+            <h3 class="amenity-card-title">نادي رياضي</h3>
+            <p class="amenity-card-desc">صالة لياقة بدنية مجهزة بأحدث المعدات مخصصة لسكان المشروع (تجريبي).</p>
+          </article>
+          <article class="amenity-text-card">
+            <h3 class="amenity-card-title">منطقة أطفال</h3>
+            <p class="amenity-card-desc">مساحة ألعاب آمنة ومغلقة للأطفال بتصميم مدروس بعيد عن مسار السيارات (تجريبي).</p>
+          </article>
+          <article class="amenity-text-card">
+            <h3 class="amenity-card-title">حدائق</h3>
+            <p class="amenity-card-desc">مساحات خضراء وممرات مشاة هادئة وجلسات خارجية عائلية (تجريبي).</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 8. Location & Landmarks Block -->
+      <section class="project-block" aria-label="الموقع والمعالم القريبة">
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="section-eyebrow">الموقع الاستراتيجي (تجريبي)</span>
+          <h2 class="section-title" style="font-size: 1.45rem;">الموقع والمعالم القريبة</h2>
+        </div>
+
+        <div class="location-grid">
+          <div class="map-placeholder-box">
+            <span class="sample-tag">مساحة الخريطة - عرض تجريبي</span>
+            <h3 class="map-placeholder-title" id="proj-map-label">خريطة موقع المشروع - حي النخيل، الرياض</h3>
+            <p class="map-placeholder-sub">
+              مساحة مخصصة لإدراج خريطة الموقع أو الإحداثيات المعتمدة للمشروع (نموذج تجريبي).
+            </p>
+          </div>
+
+          <div class="landmarks-card">
+            <h3 class="landmarks-title">أبرز المعالم والمسافات (تجريبي)</h3>
+            <ul class="landmarks-list" id="proj-landmarks-list">
+              <li>
+                <span class="landmark-name">الطريق الدائري الشمالي</span>
+                <span class="landmark-dist">4 دقائق (تجريبي)</span>
+              </li>
+              <li>
+                <span class="landmark-name">المدارس والجامعات القريبة</span>
+                <span class="landmark-dist">6 دقائق (تجريبي)</span>
+              </li>
+              <li>
+                <span class="landmark-name">مركز تسوق ومرافق يومية</span>
+                <span class="landmark-dist">7 دقائق (تجريبي)</span>
+              </li>
+              <li>
+                <span class="landmark-name">مستشفى ومركز طبي متكامل</span>
+                <span class="landmark-dist">10 دقائق (تجريبي)</span>
+              </li>
+              <li>
+                <span class="landmark-name">مطار الملك خالد الدولي</span>
+                <span class="landmark-dist">22 دقيقة (تجريبي)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Project Timeline -->
+      <section class="project-block" aria-label="الجدول الزمني لتنفيذ المشروع">
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="section-eyebrow">مراحل الإنجاز (تجريبي)</span>
+          <h2 class="section-title" style="font-size: 1.45rem;">الجدول الزمني للمشروع</h2>
+        </div>
+
+        <div class="timeline-track" id="proj-timeline-track">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- 10. Payment Plan Section -->
+      <section class="project-block" aria-label="خطة الدفعات">
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="section-eyebrow">الدفعات المرحلية (تجريبي)</span>
+          <h2 class="section-title" style="font-size: 1.45rem;">خطة السداد والدفعات</h2>
+          <p class="section-subtitle">دفعات مرتبطة بمراحل الإنجاز الفعلية وفق ضوابط البيع على الخارطة (نموذج تجريبي).</p>
+        </div>
+
+        <div class="payment-plan-grid">
+          <article class="payment-card">
+            <span class="payment-percent" id="pay-down-pct">20%</span>
+            <h3 class="payment-title">دفعة مقدمة</h3>
+            <p class="payment-desc">تُستحق عند توقيع عقد البيع على الخارطة وتثبيت الوحدة (نموذج تجريبي).</p>
+          </article>
+
+          <article class="payment-card">
+            <span class="payment-percent" id="pay-const-pct">50%</span>
+            <h3 class="payment-title">دفعات الإنشاءات</h3>
+            <p class="payment-desc">تُوزع على دفعات مجدولة مرتبطة بإنجاز الأساسات والهيكل والتشطيب (نموذج تجريبي).</p>
+          </article>
+
+          <article class="payment-card">
+            <span class="payment-percent" id="pay-handover-pct">30%</span>
+            <h3 class="payment-title">دفعة الاستلام</h3>
+            <p class="payment-desc">تُستحق عند اكتمال المشروع واستلام الوحدة وإتمام الإفراغ (نموذج تجريبي).</p>
+          </article>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 11. Fixed Mobile WhatsApp CTA Bar -->
+    <div class="mobile-project-whatsapp-bar" id="mobile-project-whatsapp-bar">
+      <div class="mobile-bar-info">
+        <span class="mobile-bar-project" id="mobile-bar-project-name">برج النخيل السكني</span>
+        <span class="mobile-bar-price" id="mobile-bar-project-price">تبدأ من 780,000 ر.س</span>
+      </div>
+
+      <a
+        id="mobile-project-wa-link"
+        href="https://wa.me/966500000000?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A8%D8%B1%D8%AC%20%D8%A7%D9%84%D9%86%D8%AE%D9%8A%D9%84%20%D8%A7%D9%84%D8%B3%D9%83%D9%86%D9%8A"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-whatsapp"
+        style="padding: 10px 14px; font-size: 0.85rem;"
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.79 14.12c-.24.68-1.42 1.3-1.95 1.38-.5.07-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.18-4.94-4.37-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.59-.36.79-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.52-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.71.81 2 .95.29.15.49.22.56.34.07.12.07.7-.17 1.38z" />
+        </svg>
+        <span>استفسر عبر واتساب</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       VIEW 3: PROJECT & UNIT DETAILS VIEW (INDIVIDUAL UNIT PAGE - UNCHANGED)
+       ======================================================================== -->
+  <section id="details-view" class="details-view hidden" aria-live="polite">
+    <div class="container">
+
+      <div class="breadcrumb-bar">
+        <nav class="breadcrumbs" aria-label="مسار الصفحة">
+          <a href="#home" class="breadcrumb-link" onclick="navigateToHome(event, 'top')">الرئيسية</a>
+          <span class="breadcrumb-sep">&gt;</span>
+          <a href="#project" class="breadcrumb-link" id="breadcrumb-project" onclick="returnToCurrentProject(event)">برج النخيل السكني</a>
+          <span class="breadcrumb-sep">&gt;</span>
+          <span class="breadcrumb-current" id="breadcrumb-unit">وحدة B-302</span>
+        </nav>
+
+        <button type="button" class="btn btn-outline-navy back-home-btn" onclick="returnToCurrentProject(event)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          <span>العودة للمشروع</span>
+        </button>
+      </div>
+
+      <div class="floating-spec-card">
+        <div class="spec-primary-group">
+          <div class="spec-unit-code">
+            <span class="spec-unit-label">رمز الوحدة السكنية</span>
+            <span class="spec-unit-value" id="spec-code">B-302</span>
+          </div>
+
+          <div class="spec-divider" aria-hidden="true"></div>
+
+          <div class="spec-kpi-row">
+            <div class="spec-kpi">
+              <span class="spec-kpi-label">المساحة الإجمالية</span>
+              <span class="spec-kpi-value" id="spec-area">155 م²</span>
+            </div>
+            <div class="spec-kpi">
+              <span class="spec-kpi-label">الطابق</span>
+              <span class="spec-kpi-value" id="spec-floor">الثالث</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="room-size-chips" id="spec-chips">
+          <span class="size-chip"><span class="size-chip-dot"></span>مجلس: 14 م²</span>
+          <span class="size-chip"><span class="size-chip-dot"></span>صالة: 18 م²</span>
+          <span class="size-chip"><span class="size-chip-dot"></span>غرفة رئيسية: 20 م²</span>
+        </div>
+      </div>
+
+      <div class="showcase-grid">
+
+        <div class="showcase-visual-col">
+          <div class="room-visual-frame" id="room-visual-frame">
+            <span class="room-visual-badge" id="room-visual-badge">مجلس الضيوف | 14 م²</span>
+            <div class="room-visual-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <circle cx="8.5" cy="10.5" r="1.5" />
+                <path d="M21 15l-5-5L5 19" />
+              </svg>
+            </div>
+            <h2 class="room-visual-title" id="room-visual-title">مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)</h2>
+            <p class="room-visual-desc" id="room-visual-desc">
+              تصور داخلي لمجلس الضيوف بمساحة 14 م² مع إضاءة مخفية وتشطيبات رخامية هادئة ومدخل مستقل يحقق الخصوصية.
+            </p>
+          </div>
+
+          <div class="room-tabs" role="tablist" aria-label="اختر الغرفة للمعاينة">
+            <button type="button" class="room-tab-btn active" role="tab" aria-selected="true" data-room="majlis" onclick="selectRoom('majlis')">
+              <span>مجلس الضيوف</span>
+              <span class="tab-area" id="tab-area-majlis">14 م²</span>
+            </button>
+            <button type="button" class="room-tab-btn" role="tab" aria-selected="false" data-room="living" onclick="selectRoom('living')">
+              <span>الصالة</span>
+              <span class="tab-area" id="tab-area-living">18 م²</span>
+            </button>
+            <button type="button" class="room-tab-btn" role="tab" aria-selected="false" data-room="kitchen" onclick="selectRoom('kitchen')">
+              <span>المطبخ</span>
+              <span class="tab-area" id="tab-area-kitchen">11 م²</span>
+            </button>
+            <button type="button" class="room-tab-btn" role="tab" aria-selected="false" data-room="master" onclick="selectRoom('master')">
+              <span>الغرفة الرئيسية</span>
+              <span class="tab-area" id="tab-area-master">20 م²</span>
+            </button>
+          </div>
+
+          <div class="room-detail-strip">
+            <div class="room-detail-heading">
+              <span id="room-detail-name">تفاصيل: مجلس الضيوف</span>
+              <span class="room-detail-size-tag" id="room-detail-size">المساحة: 14 م²</span>
+            </div>
+            <p class="room-detail-copy" id="room-detail-copy">
+              تصميم مستقل في مقدمة الوحدة مع نوافذ طولية عالية الكفاءة الحرارية، أرضيات بورسلان مطفي، وتأسيس تكييف مركزي مخفي.
+            </p>
+          </div>
+        </div>
+
+        <aside class="sticky-inquiry-card" aria-label="ملخص الوحدة والتواصل المباشر">
+          <div class="inquiry-header">
+            <span class="inquiry-badge">بيع على الخارطة</span>
+            <span class="inquiry-project-name" id="sticky-project">برج النخيل السكني</span>
+          </div>
+
+          <div class="inquiry-price-block">
+            <span class="inquiry-price-label">سعر الوحدة الإجمالي</span>
+            <div class="inquiry-price-value" id="sticky-price">865,000 ر.س</div>
+          </div>
+
+          <div class="inquiry-summary-list">
+            <div class="inquiry-summary-row">
+              <span>رمز الوحدة</span>
+              <strong class="tan" id="sticky-code">B-302</strong>
+            </div>
+            <div class="inquiry-summary-row">
+              <span>المساحة الإجمالية</span>
+              <strong id="sticky-area">155 م²</strong>
+            </div>
+            <div class="inquiry-summary-row">
+              <span>الطابق</span>
+              <strong id="sticky-floor">الثالث</strong>
+            </div>
+            <div class="inquiry-summary-row">
+              <span>الحي السكني</span>
+              <strong id="sticky-district">حي النخيل - شمال الرياض</strong>
+            </div>
+            <div class="inquiry-summary-row">
+              <span>موعد التسليم المتوقع</span>
+              <strong class="tan" id="sticky-delivery">الربع الرابع 2027</strong>
+            </div>
+          </div>
+
+          <a
+            id="sticky-whatsapp-link"
+            href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20B-302%20%D9%81%D9%8A%20%D8%A8%D8%B1%D8%AC%20%D8%A7%D9%84%D9%86%D8%AE%D9%8A%D9%84%20%D8%A7%D9%84%D8%B3%D9%83%D9%86%D9%8A"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-whatsapp inquiry-whatsapp-cta"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.79 14.12c-.24.68-1.42 1.3-1.95 1.38-.5.07-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.18-4.94-4.37-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.59-.36.79-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.52-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.71.81 2 .95.29.15.49.22.56.34.07.12.07.7-.17 1.38z" />
+            </svg>
+            <span>استفسر عن هذه الوحدة عبر واتساب</span>
+          </a>
+
+          <p class="inquiry-note">
+            تواصل مباشر مع مستشار المبيعات للحصول على المخطط الهندسي PDF وتفاصيل الدفعات المرحلية.
+          </p>
+        </aside>
+      </div>
+
+      <div class="neighborhood-section">
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="section-eyebrow">الموقع والخدمات المحيطة</span>
+          <h2 class="section-title" style="font-size: 1.5rem;">مميزات الحي السكني</h2>
+        </div>
+
+        <div class="neighborhood-grid">
+          <div class="neighborhood-card">
+            <div class="neighborhood-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-7 8-13a8 8 0 1 0-16 0c0 6 8 13 8 13z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="neighborhood-title">5 دقائق عن الطريق الدائري</h3>
+              <p class="neighborhood-desc">وصول سريع ومباشر إلى المحاور الحيوية ومراكز الأعمال في المدينة.</p>
+            </div>
+          </div>
+
+          <div class="neighborhood-card">
+            <div class="neighborhood-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 21h18M6 21V11l6-5 6 5v10M10 21v-4h4v4" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="neighborhood-title">مساجد ومدارس قريبة</h3>
+              <p class="neighborhood-desc">مسجد جامع ومدارس تعليمية أهلية وحكومية على مسافة مشي قصيرة.</p>
+            </div>
+          </div>
+
+          <div class="neighborhood-card">
+            <div class="neighborhood-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="neighborhood-title">حي سكني هادئ</h3>
+              <p class="neighborhood-desc">تخطيط عمراني منخفض الكثافة يضمن الهدوء والخصوصية للعائلة.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="section-eyebrow">خيارات إضافية في المشروع</span>
+          <h2 class="section-title" style="font-size: 1.5rem;">وحدات مشابهة في طوابق أخرى</h2>
+        </div>
+
+        <div class="similar-units-track" id="similar-units-container"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       GLOBAL DEEP NAVY FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand-logo">
+            <div class="brand-mark" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">أركان التطوير</span>
+              <span class="brand-tagline">تطوير عقاري فاخر على الخارطة</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            نطور مجتمعات سكنية متكاملة في المملكة العربية السعودية برؤية معمارية رصينة تركز على جودة الحياة والاستدامة.
+          </p>
+        </div>
+
+        <div class="footer-license-box">
+          رقم ترخيص وافي: (نموذج تجريبي) | السجل التجاري: (نموذج تجريبي)
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 أركان التطوير العقاري. جميع الحقوق محفوظة.</span>
+        <span>نموذج أولي لمشاريع التملك السكني على الخارطة - المملكة العربية السعودية</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       VANILLA JS: EXISTING UNIT STATE + NEW BUILDING/PROJECT PAGE LOGIC
+       ======================================================================== -->
+  <script>
+    // Existing individual unit database
+    const UNITS_DB = {
+      "B-302": {
+        code: "B-302",
+        projectKey: "nakheel",
+        project: "برج النخيل السكني",
+        district: "حي النخيل - شمال الرياض",
+        area: "155 م²",
+        floor: "الثالث",
+        price: "865,000 ر.س",
+        delivery: "الربع الرابع 2027",
+        rooms: {
+          majlis: { name: "مجلس الضيوف", area: "14 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي لمجلس الضيوف بمساحة 14 م² مع إضاءة مخفية وتشطيبات رخامية هادئة ومدخل مستقل.", detailCopy: "تصميم مستقل في مقدمة الوحدة مع نوافذ طولية عالية الكفاءة الحرارية، أرضيات بورسلان مطفي، وتأسيس تكييف مركزي مخفي." },
+          living: { name: "الصالة", area: "18 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للصالة العائلية بمساحة 18 م² بإطلالة مباشرة على الشرفة وإضاءة نهارية طبيعية.", detailCopy: "قلب المنزل بتوزيع مفتوح ومتوازن يربط المطبخ ومنطقة الجلوس العائلي بمرونة تامة وهدوء لوني دافئ." },
+          kitchen: { name: "المطبخ", area: "11 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للمطبخ بمساحة 11 م² بتجهيزات حديثة وأسطح كوارتز مقاومة للحرارة وتهوية طبيعية.", detailCopy: "مطبخ عملي بتمديدات سباكة وكهرباء معزولة، نقاط غسالة أطباق مخفية، وخزائن بتشطيب خشبي دافئ." },
+          master: { name: "الغرفة الرئيسية", area: "20 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للغرفة الرئيسية بمساحة 20 م² مع ركن ملابس مدمج ودورة مياه خاصة.", detailCopy: "جناح نوم هادئ معزول صوتياً بأرضيات باركيه هندسي مقاوم للرطوبة وإضاءة محيطية مريحة." }
+        },
+        similar: ["B-104", "B-205", "B-401"]
+      },
+      "B-104": {
+        code: "B-104",
+        projectKey: "nakheel",
+        project: "برج النخيل السكني",
+        district: "حي النخيل - شمال الرياض",
+        area: "148 م²",
+        floor: "الأول",
+        price: "780,000 ر.س",
+        delivery: "الربع الرابع 2027",
+        rooms: {
+          majlis: { name: "مجلس الضيوف", area: "13 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي لمجلس الضيوف بمساحة 13 م² في الطابق الأول مع إطلالة على الفناء المشجر.", detailCopy: "مجلس ضيوف رحب بتشطيب جدران دهانات دافئة وتأسيس سمارت هوم للتحكم بالإضاءة." },
+          living: { name: "الصالة", area: "17 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للصالة بمساحة 17 م² بتوزيع عائلي مريح وإضاءة سقفية غاطسة.", detailCopy: "صالة عائلية متصلة بمساحات الحركة الداخلية دون هدر في الممرات." },
+          kitchen: { name: "المطبخ", area: "10 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للمطبخ بمساحة 10 م² بتصميم نصف مفتوح على الصالة.", detailCopy: "تصميم مدمج وأنيق يوفر مساحات تخزين رأسية كاملة وتهوية ميكانيكية وطبيعية." },
+          master: { name: "الغرفة الرئيسية", area: "19 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للغرفة الرئيسية بمساحة 19 م² مع حمام خاص وتشطيبات فندقية.", detailCopy: "مساحة مريحة للسرير الملكي مع خزانة ملابس مدمجة ونوافذ عازلة للحرارة." }
+        },
+        similar: ["B-302", "B-205", "B-401"]
+      },
+      "B-205": {
+        code: "B-205",
+        projectKey: "nakheel",
+        project: "برج النخيل السكني",
+        district: "حي النخيل - شمال الرياض",
+        area: "152 م²",
+        floor: "الثاني",
+        price: "825,000 ر.س",
+        delivery: "الربع الرابع 2027",
+        rooms: {
+          majlis: { name: "مجلس الضيوف", area: "14 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي لمجلس الضيوف بمساحة 14 م² بإطلالة شرقية مشرقة.", detailCopy: "توزيع هندسي يحقق فصلاً كاملاً عن جناح الغرف مع مغسلة ضيوف رخامية." },
+          living: { name: "الصالة", area: "18 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للصالة بمساحة 18 م² مع واجهة زجاجية تسمح بدخول ضوء الشمس.", detailCopy: "مساحة معيشة مثالية للعائلة مع نقاط كهرباء وشبكة ألياف بصرية مدمجة." },
+          kitchen: { name: "المطبخ", area: "11 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للمطبخ بمساحة 11 م² مع مساحة إفطار جانبية مدمجة.", detailCopy: "أرضيات مقاومة للانزلاق مع إضاءة عمل مركزة تحت الخزائن العلوية." },
+          master: { name: "الغرفة الرئيسية", area: "20 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للغرفة الرئيسية بمساحة 20 م² في زاوية هادئة من الطابق الثاني.", detailCopy: "تصميم فندقي بواجهات هادئة وأبواب WPC عالية المتانة." }
+        },
+        similar: ["B-302", "B-104", "B-401"]
+      },
+      "B-401": {
+        code: "B-401",
+        projectKey: "nakheel",
+        project: "برج النخيل السكني",
+        district: "حي النخيل - شمال الرياض",
+        area: "168 م²",
+        floor: "الرابع",
+        price: "940,000 ر.س",
+        delivery: "الربع الرابع 2027",
+        rooms: {
+          majlis: { name: "مجلس الضيوف", area: "16 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي لمجلس الضيوف بمساحة 16 م² في الطابق الرابع بإطلالة بانورامية مفتوحة.", detailCopy: "مجلس واسع بارتفاع سقف 3.2 متر يمنح إحساساً بالرحابة والفخامة." },
+          living: { name: "الصالة", area: "21 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للصالة بمساحة 21 م² مع شرفة خارجية خاصة بالطابق الرابع.", detailCopy: "صالة عائلية فسيحة مناسبة للتجمعات العائلية اليومية مع تكييف مركزي مخفي." },
+          kitchen: { name: "المطبخ", area: "12 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للمطبخ بمساحة 12 م² مع مستودع خدمة وغسيل مرفق.", detailCopy: "توزيع مثالي لمثلث الحركة داخل المطبخ مع غرفة غسيل مستقلة." },
+          master: { name: "الغرفة الرئيسية", area: "22 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للغرفة الرئيسية بمساحة 22 م² مع جلسة جانبية وغرفة ملابس.", detailCopy: "جناح رئيسي واسع يتسع لمنطقة جلوس خاصة مع إطلالة حرة على الحي." }
+        },
+        similar: ["B-302", "B-205", "B-104"]
+      },
+      "Y-201": {
+        code: "Y-201",
+        projectKey: "yasmin",
+        project: "مجمع الياسمين",
+        district: "حي الياسمين - شمال الرياض",
+        area: "160 م²",
+        floor: "الثاني",
+        price: "845,000 ر.س",
+        delivery: "الربع الثاني 2028",
+        rooms: {
+          majlis: { name: "مجلس الضيوف", area: "15 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي لمجلس الضيوف بمساحة 15 م² في مجمع الياسمين بتشطيبات الحجر الطبيعي.", detailCopy: "مدخل مستقل ومغاسل رخام ترافرتين دافئة تتناغم مع الهوية المعمارية للمجمع." },
+          living: { name: "الصالة", area: "19 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للصالة بمساحة 19 م² تطل على الممرات المشجرة للمجمع.", detailCopy: "نوافذ بانورامية بعزل حراري مزدوج تمنح الصالة إضاءة طبيعية طوال اليوم." },
+          kitchen: { name: "المطبخ", area: "11 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للمطبخ بمساحة 11 م² بتصميم عملي مغلق.", detailCopy: "مجهز بنقاط تهوية وتمديدات حديثة بأعلى معايير السلامة." },
+          master: { name: "الغرفة الرئيسية", area: "21 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للغرفة الرئيسية بمساحة 21 م² مع خزائن حائط مدمجة.", detailCopy: "خصوصية تامة وعزل صوتي متطور بين الغرف." }
+        },
+        similar: ["B-302", "B-205", "M-404"]
+      },
+      "M-404": {
+        code: "M-404",
+        projectKey: "murooj",
+        project: "واحة المروج",
+        district: "حي المروج - الرياض",
+        area: "172 م²",
+        floor: "الرابع",
+        price: "920,000 ر.س",
+        delivery: "الربع الأول 2028",
+        rooms: {
+          majlis: { name: "مجلس الضيوف", area: "16 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي لمجلس الضيوف بمساحة 16 م² في واحة المروج بإطلالة هادئة.", detailCopy: "تصميم يجمع بين الرحابة والهدوء مع تفاصيل جبسية أنيقة بدون تكلف." },
+          living: { name: "الصالة", area: "20 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للصالة بمساحة 20 م² مع شرفة واسعة للاستخدام العائلي.", detailCopy: "مساحة معيشة مفتوحة تتكامل مع طاولة الطعام العائلية." },
+          kitchen: { name: "المطبخ", area: "12 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للمطبخ بمساحة 12 م² بتشطيب حديث وأسطح مقاومة للخدش.", detailCopy: "يشمل غرفة خادمة/غسيل مرفقة لرفع الكفاءة اليومية للأسرة." },
+          master: { name: "الغرفة الرئيسية", area: "22 م²", visualTitle: "مساحة صورة الغرفة - جاهزة لإضافة صور الذكاء الاصطناعي (تجريبي)", visualDesc: "تصور داخلي للغرفة الرئيسية بمساحة 22 م² مع إضاءة طبيعية وتصميم فندقي.", detailCopy: "جناح رئيسي واسع مع دورة مياه مزدوجة الأحواض." }
+        },
+        similar: ["B-302", "Y-201", "B-401"]
+      }
+    };
+
+    // Building / Project Page Data (Hardcoded Arabic Sample Data - Marked "تجريبي")
+    const PROJECTS_DB = {
+      nakheel: {
+        key: "nakheel",
+        name: "برج النخيل السكني",
+        location: "حي النخيل، مدينة الرياض",
+        status: "بيع على الخارطة",
+        startPrice: "780,000 ر.س",
+        availableCount: "8 وحدات متاحة (تجريبي)",
+        handover: "الربع الرابع 2027",
+        facts: {
+          floors: "4 طوابق",
+          totalUnits: "16 وحدة",
+          areaRange: "142 - 188 م²",
+          parking: "32 موقف خاص",
+          delivery: "نهاية 2027 (تجريبي)"
+        },
+        activeStageIndex: 2, // 0: التعاقد, 1: الأساسات, 2: الهيكل, 3: التشطيب, 4: التسليم
+        timelineDates: ["تمت - الربع ١ / ٢٠٢٦", "تمت - الربع ٣ / ٢٠٢٦", "جارية حالياً (٦٥٪)", "الربع ٢ / ٢٠٢٧ (تجريبي)", "الربع ٤ / ٢٠٢٧ (تجريبي)"],
+        paymentPlan: { down: "20%", construction: "50%", handover: "30%" },
+        landmarks: [
+          { name: "الطريق الدائري الشمالي", dist: "4 دقائق (تجريبي)" },
+          { name: "مدارس وجامعات الحي", dist: "5 دقائق (تجريبي)" },
+          { name: "مركز تسوق النخيل", dist: "7 دقائق (تجريبي)" },
+          { name: "مستشفى تخصصي قريب", dist: "10 دقائق (تجريبي)" },
+          { name: "مطار الملك خالد الدولي", dist: "22 دقيقة (تجريبي)" }
+        ],
+        media: {
+          facade: {
+            badge: "عرض تجريبي | واجهة المشروع (فيديو / صورة عالية الدقة)",
+            title: "الواجهة المعمارية الرئيسية - برج النخيل السكني",
+            caption: "مساحة مخصصة لإدراج فيديو المشروع السينمائي أو الصورة عالية الدقة للواجهة الحجرية الدافئة (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.22), transparent 55%), linear-gradient(145deg, #0A0F1D 0%, #151E35 60%, #241E14 100%)"
+          },
+          lobby: {
+            badge: "عرض تجريبي | مدخل المشروع (بهو الاستقبال)",
+            title: "مدخل وبهو الاستقبال الفندقي - برج النخيل السكني",
+            caption: "مدخل رحب بارتفاع مزدوج وتكسيات حجرية وإضاءة معمارية دافئة مع مكتب استقبال وأمن (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 80% 25%, rgba(212, 175, 55, 0.2), transparent 55%), linear-gradient(145deg, #0E1322 0%, #1C2030 60%, #292218 100%)"
+          },
+          shared: {
+            badge: "عرض تجريبي | المنطقة المشتركة للسكان",
+            title: "الممرات الخضراء وصالة السكان المشتركة",
+            caption: "فناء داخلي مظلل وجلسات عائلية معزولة مع إضاءة ليلية هادئة (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.16), transparent 55%), linear-gradient(145deg, #09121B 0%, #132232 60%, #18231E 100%)"
+          },
+          view: {
+            badge: "عرض تجريبي | الإطلالة المحيطة بالبرج",
+            title: "إطلالات الوحدات العلوية على حي النخيل",
+            caption: "شرفات واسعة تطل على شوارع مشجرة وواجهات عمرانية منخفضة الكثافة (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.16), transparent 55%), linear-gradient(145deg, #080E1E 0%, #14223B 60%, #1D283A 100%)"
+          }
+        },
+        floors: [
+          {
+            floorLabel: "الطابق الرابع",
+            floorName: "الرابع",
+            units: [
+              { code: "B-401", areaNum: 168, area: "168 م²", rooms: 4, priceNum: 940000, price: "940,000 ر.س", status: "available" },
+              { code: "B-402", areaNum: 175, area: "175 م²", rooms: 4, priceNum: 1020000, price: "1,020,000 ر.س", status: "available" },
+              { code: "B-403", areaNum: 188, area: "188 م²", rooms: 4, priceNum: 1120000, price: "1,120,000 ر.س", status: "reserved" },
+              { code: "B-404", areaNum: 164, area: "164 م²", rooms: 3, priceNum: 910000, price: "910,000 ر.س", status: "sold" }
+            ]
+          },
+          {
+            floorLabel: "الطابق الثالث",
+            floorName: "الثالث",
+            units: [
+              { code: "B-301", areaNum: 158, area: "158 م²", rooms: 3, priceNum: 880000, price: "880,000 ر.س", status: "sold" },
+              { code: "B-302", areaNum: 155, area: "155 م²", rooms: 3, priceNum: 865000, price: "865,000 ر.س", status: "available" },
+              { code: "B-303", areaNum: 162, area: "162 م²", rooms: 3, priceNum: 895000, price: "895,000 ر.س", status: "available" },
+              { code: "B-304", areaNum: 170, area: "170 م²", rooms: 4, priceNum: 960000, price: "960,000 ر.س", status: "reserved" }
+            ]
+          },
+          {
+            floorLabel: "الطابق الثاني",
+            floorName: "الثاني",
+            units: [
+              { code: "B-201", areaNum: 145, area: "145 م²", rooms: 2, priceNum: 795000, price: "795,000 ر.س", status: "sold" },
+              { code: "B-202", areaNum: 150, area: "150 م²", rooms: 3, priceNum: 820000, price: "820,000 ر.س", status: "available" },
+              { code: "B-204", areaNum: 156, area: "156 م²", rooms: 3, priceNum: 840000, price: "840,000 ر.س", status: "sold" },
+              { code: "B-205", areaNum: 152, area: "152 م²", rooms: 3, priceNum: 825000, price: "825,000 ر.س", status: "available" }
+            ]
+          },
+          {
+            floorLabel: "الطابق الأول",
+            floorName: "الأول",
+            units: [
+              { code: "B-101", areaNum: 142, area: "142 م²", rooms: 2, priceNum: 780000, price: "780,000 ر.س", status: "available" },
+              { code: "B-102", areaNum: 146, area: "146 م²", rooms: 2, priceNum: 790000, price: "790,000 ر.س", status: "reserved" },
+              { code: "B-103", areaNum: 150, area: "150 م²", rooms: 3, priceNum: 810000, price: "810,000 ر.س", status: "sold" },
+              { code: "B-104", areaNum: 148, area: "148 م²", rooms: 3, priceNum: 780000, price: "780,000 ر.س", status: "available" }
+            ]
+          }
+        ]
+      },
+      yasmin: {
+        key: "yasmin",
+        name: "مجمع الياسمين",
+        location: "حي الياسمين، مدينة الرياض",
+        status: "بيع على الخارطة",
+        startPrice: "845,000 ر.س",
+        availableCount: "7 وحدات متاحة (تجريبي)",
+        handover: "الربع الثاني 2028",
+        facts: {
+          floors: "3 طوابق",
+          totalUnits: "12 وحدة",
+          areaRange: "150 - 195 م²",
+          parking: "24 موقف خاص",
+          delivery: "منتصف 2028 (تجريبي)"
+        },
+        activeStageIndex: 1,
+        timelineDates: ["تمت - الربع ٢ / ٢٠٢٦", "جارية حالياً (٤٠٪)", "الربع ١ / ٢٠٢٧ (تجريبي)", "الربع ٤ / ٢٠٢٧ (تجريبي)", "الربع ٢ / ٢٠٢٨ (تجريبي)"],
+        paymentPlan: { down: "15%", construction: "55%", handover: "30%" },
+        landmarks: [
+          { name: "طريق أنس بن مالك", dist: "3 دقائق (تجريبي)" },
+          { name: "طريق الملك فهد", dist: "6 دقائق (تجريبي)" },
+          { name: "مدارس دولية وأهلية", dist: "5 دقائق (تجريبي)" },
+          { name: "حديقة الياسمين", dist: "4 دقائق (تجريبي)" }
+        ],
+        media: {
+          facade: {
+            badge: "عرض تجريبي | واجهة مجمع الياسمين",
+            title: "الواجهة السكنية منخفضة الكثافة - مجمع الياسمين",
+            caption: "مساحة مخصصة لإدراج فيديو أو صورة واجهة مجمع الياسمين بالحجر الطبيعي (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.22), transparent 55%), linear-gradient(145deg, #0A0F1D 0%, #16213A 60%, #241E14 100%)"
+          },
+          lobby: {
+            badge: "عرض تجريبي | مدخل مجمع الياسمين",
+            title: "مدخل البوابة الذكية وبهو السكان",
+            caption: "بهو هادئ بتفاصيل خشبية وإضاءة مخفية فاخرة (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 80% 25%, rgba(212, 175, 55, 0.2), transparent 55%), linear-gradient(145deg, #0E1322 0%, #1C2030 60%, #292218 100%)"
+          },
+          shared: {
+            badge: "عرض تجريبي | الحدائق والممرات",
+            title: "ممرات المشاة والحديقة الداخلية",
+            caption: "جلسات مظللة ومساحات خضراء تربط مباني المجمع (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.16), transparent 55%), linear-gradient(145deg, #09121B 0%, #132232 60%, #18231E 100%)"
+          },
+          view: {
+            badge: "عرض تجريبي | الإطلالة",
+            title: "إطلالة الشرفات على حي الياسمين",
+            caption: "إطلالة مفتوحة على الشوارع الهادئة والحدائق (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.16), transparent 55%), linear-gradient(145deg, #080E1E 0%, #14223B 60%, #1D283A 100%)"
+          }
+        },
+        floors: [
+          {
+            floorLabel: "الطابق الثالث",
+            floorName: "الثالث",
+            units: [
+              { code: "Y-301", areaNum: 185, area: "185 م²", rooms: 4, priceNum: 1050000, price: "1,050,000 ر.س", status: "available" },
+              { code: "Y-302", areaNum: 195, area: "195 م²", rooms: 4, priceNum: 1140000, price: "1,140,000 ر.س", status: "available" },
+              { code: "Y-303", areaNum: 174, area: "174 م²", rooms: 3, priceNum: 965000, price: "965,000 ر.س", status: "reserved" },
+              { code: "Y-304", areaNum: 170, area: "170 م²", rooms: 3, priceNum: 940000, price: "940,000 ر.س", status: "sold" }
+            ]
+          },
+          {
+            floorLabel: "الطابق الثاني",
+            floorName: "الثاني",
+            units: [
+              { code: "Y-201", areaNum: 160, area: "160 م²", rooms: 3, priceNum: 845000, price: "845,000 ر.س", status: "available" },
+              { code: "Y-202", areaNum: 165, area: "165 م²", rooms: 3, priceNum: 880000, price: "880,000 ر.س", status: "available" },
+              { code: "Y-203", areaNum: 158, area: "158 م²", rooms: 2, priceNum: 855000, price: "855,000 ر.س", status: "sold" },
+              { code: "Y-204", areaNum: 168, area: "168 م²", rooms: 3, priceNum: 910000, price: "910,000 ر.س", status: "available" }
+            ]
+          },
+          {
+            floorLabel: "الطابق الأول",
+            floorName: "الأول",
+            units: [
+              { code: "Y-101", areaNum: 150, area: "150 م²", rooms: 2, priceNum: 845000, price: "845,000 ر.س", status: "available" },
+              { code: "Y-102", areaNum: 154, area: "154 م²", rooms: 2, priceNum: 860000, price: "860,000 ر.س", status: "reserved" },
+              { code: "Y-103", areaNum: 160, area: "160 م²", rooms: 3, priceNum: 890000, price: "890,000 ر.س", status: "sold" },
+              { code: "Y-104", areaNum: 162, area: "162 م²", rooms: 3, priceNum: 905000, price: "905,000 ر.س", status: "available" }
+            ]
+          }
+        ]
+      },
+      murooj: {
+        key: "murooj",
+        name: "واحة المروج",
+        location: "حي المروج، مدينة الرياض",
+        status: "بيع على الخارطة",
+        startPrice: "920,000 ر.س",
+        availableCount: "6 وحدات متاحة (تجريبي)",
+        handover: "الربع الأول 2028",
+        facts: {
+          floors: "4 طوابق",
+          totalUnits: "12 وحدة",
+          areaRange: "165 - 210 م²",
+          parking: "24 موقف خاص",
+          delivery: "بداية 2028 (تجريبي)"
+        },
+        activeStageIndex: 3,
+        timelineDates: ["تمت - الربع ٤ / ٢٠٢٥", "تمت - الربع ٢ / ٢٠٢٦", "تمت - الربع ٤ / ٢٠٢٦", "جارية حالياً (٨٠٪)", "الربع ١ / ٢٠٢٨ (تجريبي)"],
+        paymentPlan: { down: "25%", construction: "45%", handover: "30%" },
+        landmarks: [
+          { name: "طريق الملك عبدالعزيز", dist: "4 دقائق (تجريبي)" },
+          { name: "واحة الملك سلمان للعلوم", dist: "6 دقائق (تجريبي)" },
+          { name: "حديقة وممشى المروج", dist: "3 دقائق (تجريبي)" },
+          { name: "مركز الملك عبدالله المالي", dist: "9 دقائق (تجريبي)" }
+        ],
+        media: {
+          facade: {
+            badge: "عرض تجريبي | واجهة واحة المروج",
+            title: "الواجهة المعمارية الحديثة - واحة المروج",
+            caption: "مساحة مخصصة لإدراج فيديو أو صورة واجهة واحة المروج الزجاجية والحجرية (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.22), transparent 55%), linear-gradient(145deg, #0A0F1D 0%, #151E35 60%, #241E14 100%)"
+          },
+          lobby: {
+            badge: "عرض تجريبي | مدخل واحة المروج",
+            title: "مدخل السكان والكونسيرج",
+            caption: "مدخل فسيح بتفاصيل رخامية وإضاءة هادئة (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 80% 25%, rgba(212, 175, 55, 0.2), transparent 55%), linear-gradient(145deg, #0E1322 0%, #1C2030 60%, #292218 100%)"
+          },
+          shared: {
+            badge: "عرض تجريبي | النادي والحديقة",
+            title: "النادي الصحي والردهة المشتركة",
+            caption: "مرافق متكاملة للسكان بتصميم مريح وخصوصية عالية (نموذج تجريبي).",
+            bg: "radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.16), transparent 55%), linear-gradient(145deg, #09121B 0%, #132232 60%, #18231E 1
